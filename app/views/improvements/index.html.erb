@@ -1,0 +1,35 @@
+<div class="container">
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Improvements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Principle</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @improvements.each do |improvement| %>
+      <tr>
+        <td><%= improvement.title %></td>
+        <td><%= improvement.author %></td>
+        <td><%= improvement.principle %></td>
+        <td><%= improvement.description %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+</div>
+

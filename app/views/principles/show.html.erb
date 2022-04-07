@@ -1,0 +1,35 @@
+<div class="container">
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h2><%= @principle.title %></h2>
+</p>
+
+<p>
+   <% if @principle.image.exists? %>
+        <%= link_to (image_tag @principle.image.url(:medium), class: 'img-responsive img-medium') %>
+    <% end %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @principle.author %>
+</p>
+<p>
+  <%= simple_format(@principle.description) %>
+</p>
+
+<p>
+  An example of this principle at work: <%= link_to @principle.casestudy, @principle.case_webpage %>
+</p>
+
+<% if has_role? (:admin) %>
+    <%= link_to 'Edit Principle', edit_principle_path(@principle), class: "btn btn-primary" %>
+<% end %>
+
+
+
+<%= link_to 'Back', principles_path, class: "btn btn-primary" %>
+
+</div>

@@ -1,0 +1,12 @@
+.container
+	.row
+		.col-md-12
+			h1 My beautiful profile page
+			div
+				h4 Email
+				p= @user.email
+				p= @user.user_name
+				- if @user.avatar.exists?
+					=image_tag @user.avatar.url(:thumb), class: 'img-responsive img-thumbnail'
+				- else
+					=image_tag 'default_avatar.jpg', class: 'img-circle img-thumbnail', width: '100'

@@ -1,0 +1,20 @@
+.welcome_image {
+	width: 100%;
+	transition: .3s;
+	border: 2px solid white;
+}
+
+.welcome_image:hover {
+	opacity: .8;
+	border: 2px solid black;
+}
+
+.mSpace {
+	margin-top: 80px;
+}
+
+.category {
+	text-align: center;
+
+	
+}

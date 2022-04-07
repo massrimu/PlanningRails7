@@ -1,0 +1,29 @@
+<div class="container">
+
+
+	<p id="notice"><%= notice %></p>
+
+	<p>
+	  <strong>Title:</strong>
+	  <%= @improvement.title %>
+	</p>
+
+	<p>
+	  <strong>Author:</strong>
+	  <%= @improvement.author %>
+	</p>
+
+	<p>
+	  <strong>Principle:</strong>
+	  <%= @improvement.principle %>
+	</p>
+
+	<p>
+	  <strong>Description:</strong>
+	  <%= @improvement.description %>
+	</p>
+
+	<%= link_to 'Edit', edit_improvement_path(@improvement) %> |
+	<%= link_to 'Back', improvements_path %>
+
+</div>

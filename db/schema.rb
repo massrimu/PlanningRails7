@@ -10,16 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_18_054454) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_14_015308) do
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.string "service_name", null: false
+    t.integer "byte_size", null: false
+    t.string "checksum"
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.bigint "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "reset_password_sent_at", precision: nil
+    t.datetime "remember_created_at", precision: nil
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
@@ -30,12 +57,12 @@ ActiveRecord::Schema.define(version: 2019_11_18_054454) do
     t.text "description"
     t.string "image", limit: 255
     t.string "webpage", limit: 255
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "image_file_name", limit: 255
     t.string "image_content_type", limit: 255
     t.integer "image_file_size"
-    t.datetime "image_updated_at"
+    t.datetime "image_updated_at", precision: nil
   end
 
   create_table "improvements", force: :cascade do |t|
@@ -44,13 +71,13 @@ ActiveRecord::Schema.define(version: 2019_11_18_054454) do
     t.string "principle", limit: 255
     t.text "description"
     t.integer "project_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.integer "projects_id"
     t.string "image_file_name", limit: 255
     t.string "image_content_type", limit: 255
     t.integer "image_file_size"
-    t.datetime "image_updated_at"
+    t.datetime "image_updated_at", precision: nil
     t.index ["project_id"], name: "idx_improvements_index_improvements_on_project_id"
     t.index ["projects_id"], name: "idx_improvements_index_improvements_on_projects_id"
   end
@@ -62,12 +89,12 @@ ActiveRecord::Schema.define(version: 2019_11_18_054454) do
     t.string "image", limit: 255
     t.string "casestudy", limit: 255
     t.string "case_webpage", limit: 255
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "image_file_name", limit: 255
     t.string "image_content_type", limit: 255
     t.integer "image_file_size"
-    t.datetime "image_updated_at"
+    t.datetime "image_updated_at", precision: nil
   end
 
   create_table "projects", force: :cascade do |t|
@@ -75,12 +102,12 @@ ActiveRecord::Schema.define(version: 2019_11_18_054454) do
     t.text "description"
     t.string "image", limit: 255
     t.string "webpage", limit: 255
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "image_file_name", limit: 255
     t.string "image_content_type", limit: 255
     t.integer "image_file_size"
-    t.datetime "image_updated_at"
+    t.datetime "image_updated_at", precision: nil
     t.integer "user_id"
   end
 
@@ -88,8 +115,8 @@ ActiveRecord::Schema.define(version: 2019_11_18_054454) do
     t.string "name"
     t.integer "resource_id"
     t.string "resource_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
     t.index ["name"], name: "index_roles_on_name"
   end
@@ -98,19 +125,19 @@ ActiveRecord::Schema.define(version: 2019_11_18_054454) do
     t.string "email", limit: 255, default: "", null: false
     t.string "encrypted_password", limit: 255, default: "", null: false
     t.string "reset_password_token", limit: 255
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
+    t.datetime "reset_password_sent_at", precision: nil
+    t.datetime "remember_created_at", precision: nil
     t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
+    t.datetime "current_sign_in_at", precision: nil
+    t.datetime "last_sign_in_at", precision: nil
     t.string "current_sign_in_ip", limit: 255
     t.string "last_sign_in_ip", limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.string "avatar_file_name", limit: 255
     t.string "avatar_content_type", limit: 255
     t.integer "avatar_file_size"
-    t.datetime "avatar_updated_at"
+    t.datetime "avatar_updated_at", precision: nil
     t.string "user_name", limit: 255
     t.string "role"
     t.boolean "admin", default: false
@@ -130,11 +157,13 @@ ActiveRecord::Schema.define(version: 2019_11_18_054454) do
     t.boolean "vote_flag"
     t.string "vote_scope"
     t.integer "vote_weight"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
     t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "improvements", "projects"
 end

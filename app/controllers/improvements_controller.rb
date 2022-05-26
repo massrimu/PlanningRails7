@@ -1,6 +1,7 @@
 class ImprovementsController < ApplicationController
   before_action :set_improvement, only: [:show, :edit, :update, :destroy, :vote]
   respond_to :js, :json, :html
+  load_and_authorize_resource
   # GET /improvements
   # GET /improvements.json
   def index
@@ -34,14 +35,14 @@ class ImprovementsController < ApplicationController
   #  respond_to do |format|
   #    if @improvement.save
   #     # format.html { redirect_to @improvement, notice: 'Improvement was successfully created.' }
- 
+
   #      format.html { redirect_to project_path (@project), notice: 'Improvement was successfully created.' }
-  #      format.json { render :show, status: :created, location: @improvement } 
+  #      format.json { render :show, status: :created, location: @improvement }
   #    else
   #      format.html { render :new }
   #      format.json { render json: @improvement.errors, status: :unprocessable_entity }
   #    end
-    
+
   end
 
   # PATCH/PUT /improvements/1
@@ -65,7 +66,7 @@ class ImprovementsController < ApplicationController
     @improvement = @project.improvements.find(params[:id])
     @improvement.destroy
     redirect_to project_path(@project)
-    
+
   end
 
   def vote

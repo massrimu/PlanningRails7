@@ -1,0 +1,2 @@
+module TiffHelper
+end

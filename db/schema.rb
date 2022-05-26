@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_14_015308) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_18_070928) do
+  create_table "action_text_rich_texts", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "body"
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
+  end
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -63,6 +73,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_14_015308) do
     t.string "image_content_type", limit: 255
     t.integer "image_file_size"
     t.datetime "image_updated_at", precision: nil
+  end
+
+  create_table "faqs", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "improvements", force: :cascade do |t|
@@ -119,6 +135,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_14_015308) do
     t.datetime "updated_at", precision: nil
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
     t.index ["name"], name: "index_roles_on_name"
+  end
+
+  create_table "tiffs", force: :cascade do |t|
+    t.string "title", limit: 100
+    t.string "author", limit: 50
+    t.string "body", limit: 1000
+    t.string "value", limit: 100
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "sort"
   end
 
   create_table "users", force: :cascade do |t|

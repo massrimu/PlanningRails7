@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  get 'faqs/index'
+  get 'faqs/new'
+  get 'faqs/create'
+  get 'faqs/show'
+  get 'faqs/edit'
+  get 'faqs/update'
+  get 'faqs/destroy'
+
+ get 'tiff/create'
+ post 'tiff/create'
+ get 'tiff/view/:id', to: 'tiff#view'
+ get 'tiff/index'
+ get 'tiff/delete/:id', to: 'tiff#delete'
+ get 'tiff/edit/:id', to: 'tiff#edit'
+ post 'tiff/edit/:id', to: 'tiff#edit'
+
   devise_for :admins
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :projects do
@@ -12,6 +28,10 @@ Rails.application.routes.draw do
 
   resources :principles
 
+  resources :tiff
+
+  resources :faqs
+
   resources :books
 
   devise_for :users
@@ -19,6 +39,8 @@ Rails.application.routes.draw do
   get 'about/index'
 
   get 'welcome/index'
+
+
 
 #  authenticated :user do |variable|
 #    root 'dashboard#index', as: 'authenticated_root'

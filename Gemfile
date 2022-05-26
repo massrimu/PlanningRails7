@@ -6,6 +6,9 @@ source 'https://rubygems.org'
 
 gem 'bundler'
 
+gem 'rails_sortable'
+
+
 gem 'autoprefixer-rails'
 #, '~> 7.1.6'
 
@@ -27,6 +30,9 @@ gem 'sqlite3'
 gem 'mysql2'
 #, '~> 0.5.2'
 gem "sprockets", "<4"
+
+gem 'jquery-ui-rails'
+
 
 #gem 'mimemagic', '~> 0.3.3'
 gem 'mimemagic'

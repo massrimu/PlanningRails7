@@ -1,0 +1,39 @@
+<style>
+th, td {
+  padding: 10px;
+}
+th {
+  text-align: right;
+}
+</style>
+
+<h1>Create Investment:</h1>
+
+<%= form_tag(nil, method: "post") do %>
+
+<table>
+  <tbody>
+    <tr>
+      <th><%= label_tag(:title, "Title:") %></th>
+      <td><%= text_field_tag(:title, nil, :required => true) %></td>
+    </tr>
+    <tr>
+      <th><%= label_tag(:author, "Author:") %></th>
+      <td><%= text_field_tag(:author, nil, :required => true) %></td>
+    </tr>
+    <tr>
+      <th><%= label_tag(:author, "Body:") %></th>
+      <td><%= text_field_tag(:body, nil, :required => true) %></td>
+    </tr>
+    <tr>
+      <th><%= label_tag(:value, "Value($$):") %></th>
+      <td><%= text_field_tag(:value, nil, :required => true) %></td>
+    </tr>
+    <tr>
+      <th></th>
+      <td><%= submit_tag("Create") %></td>
+    </tr>
+  </tbody>
+</table>
+
+<% end %>

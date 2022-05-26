@@ -5,6 +5,10 @@
 @import "welcome";
 @import "about";
 @import "projects";
+@import 'trix/dist/trix.css';
+@import "./actiontext.scss";
+
+
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
     background-color: black !important;

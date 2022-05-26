@@ -16,6 +16,7 @@ Rails.application.routes.draw do
  post 'tiff/edit/:id', to: 'tiff#edit'
 
   devise_for :admins
+   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :projects do
     resources :improvements do

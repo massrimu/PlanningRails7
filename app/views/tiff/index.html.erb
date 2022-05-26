@@ -35,9 +35,11 @@ th {
       <th>Title</th>
       <th>Author</th>
       <th>Body</th>
-      <th>Value</th>
+      <th>$ Value</th>
+      <% if can? :manage, :all %>
       <th>Delete</th>
       <th>Update</th>
+      <% end %>
     </tr>
   </thead>
   <tbody class="sortable">
@@ -49,13 +51,13 @@ th {
     <td><%= tiff.body[0..20] %>...</td>
     <td><%= tiff.value %></td>
 <td>
-<% if can? :manage, tiff %>
+<% if can? :manage, :all %>
 <%= link_to 'Delete', tiff, method: :delete, data: { confirm: 'Are you sure?' }%>
 <% end %>
 </td>
 
 <td>
-<% if can? :manage, tiff %>
+<% if can? :manage, :all %>
 <%= link_to 'Update', edit_tiff_path(tiff)%>
 <% end %>
 </td>

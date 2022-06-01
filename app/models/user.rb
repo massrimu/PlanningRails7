@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :projects
   has_many :principles
   has_many :improvements
+  
+
   acts_as_voter
 
   has_attached_file :avatar, styles: { medium: "700x700>", thumb: "300x300>" }

@@ -1,5 +1,6 @@
 class TiffController < ApplicationController
   #before_action :authenticate_user!
+  respond_to :html, :xml, :json
   #load_and_authorize_resource
 
   def index
@@ -22,7 +23,12 @@ end
     tiff.destroy
     redirect_to "/tiff"
   end
+  def upvote
+	@tiff = Tiff.find(params[:id])
+  @tiff.upvote_by current_user
+  redirect_to "/tiff"
 
+  end
   def edit
     if request.post?
      tiff = Tiff.find_by(id: params[:id])

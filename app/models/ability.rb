@@ -11,10 +11,13 @@ class Ability
       can :read, User
          #Users:
       return unless user.present?
-      can :manage, User, user_id: user.id
+      can :manage, User
+      #, user_id: user.id
  # Admins:
       return unless user.admin?
       can :manage, :all
+      can :access, :rails_admin       # only allow admin users to access Rails Admin
+      can :manage, :dashboard
 
       end
 

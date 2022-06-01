@@ -1,5 +1,5 @@
 class Improvement < ApplicationRecord
-  # belongs_to :user
+  #belongs_to :user
   acts_as_votable
   belongs_to :project
   validates_presence_of :title, :author, :description, :principle

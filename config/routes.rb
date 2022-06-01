@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+
   get 'faqs/index'
   get 'faqs/new'
   get 'faqs/create'
@@ -16,7 +18,7 @@ Rails.application.routes.draw do
  post 'tiff/edit/:id', to: 'tiff#edit'
 
   devise_for :admins
-   
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :projects do
     resources :improvements do
@@ -29,13 +31,20 @@ Rails.application.routes.draw do
 
   resources :principles
 
-  resources :tiff
+  resources :tiff do
+    member do
+    put 'like', to: 'tiff#upvote'
+  end
+end
 
   resources :faqs
 
   resources :books
 
-  devise_for :users
+  resources :users
+
+
+
 
   get 'about/index'
 

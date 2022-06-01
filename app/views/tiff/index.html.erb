@@ -32,6 +32,7 @@ th {
 <table>
   <thead>
     <tr>
+      <th></th>
       <th>Title</th>
       <th>Author</th>
       <th>Body</th>
@@ -46,10 +47,20 @@ th {
   <% @tiffs.each_with_sortable_id do |tiff, sortable_id| %>
      <tr id="<%= sortable_id %>">
   <tr>
+    <td>  <%= link_to like_tiff_path(tiff), method: :put do %>
+        <div>
+          <span><i class="fa fa-thumbs-up fa-1x"> </i> </span>
+
+          <p><%= tiff.get_upvotes.size %> </p>
+        </div>
+     <% end %>
+     </td>
     <td><%= tiff.title %></td>
     <td><%= tiff.author %></td>
     <td><%= tiff.body[0..20] %>...</td>
     <td><%= tiff.value %></td>
+
+
 <td>
 <% if can? :manage, :all %>
 <%= link_to 'Delete', tiff, method: :delete, data: { confirm: 'Are you sure?' }%>

@@ -86,7 +86,8 @@
 
         </div>
         <div class="modal-footer">
-          <% if can? :manage, :all %>
+          <% if can? :manage, User %>
+
               <%= link_to 'Delete', project_improvement_path(@project, improvement),
                                 method: :delete,
                                 data: { confirm: "Are you sure?"} %>

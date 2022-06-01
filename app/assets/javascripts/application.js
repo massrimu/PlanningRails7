@@ -17,8 +17,8 @@
 //= require bootstrap-sprockets
 //= require jquery-ui/widgets/sortable
 //= require rails_sortable
-//= require("trix")
-//= require("@rails/actiontext")
+
+
 
 
 $(function() {

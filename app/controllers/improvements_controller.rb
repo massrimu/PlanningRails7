@@ -1,7 +1,7 @@
 class ImprovementsController < ApplicationController
   before_action :set_improvement, only: [:show, :edit, :update, :destroy, :vote]
   respond_to :js, :json, :html
-  load_and_authorize_resource
+  
   # GET /improvements
   # GET /improvements.json
   def index

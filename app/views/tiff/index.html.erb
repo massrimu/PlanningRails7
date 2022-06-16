@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <div class="container">
   <div class="rectangle"></div>
 
@@ -46,7 +45,6 @@ th {
   <tbody class="sortable">
   <% @tiffs.each_with_sortable_id do |tiff, sortable_id| %>
      <tr id="<%= sortable_id %>">
-  <tr>
     <td>  <%= link_to like_tiff_path(tiff), method: :put do %>
         <div>
           <span><i class="fa fa-thumbs-up fa-1x"> </i> </span>
@@ -85,7 +83,9 @@ th {
 <% end %>
 
 <br/>
+<% if can? :manage, :all %>
 <a href="/tiff/create">Create New</a>
+<% end %>
 <div class="rightpane">
   <h1>
     <a href="https://www.w3schools.com/html/" >Tiff Overview

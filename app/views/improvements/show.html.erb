@@ -22,8 +22,9 @@
 	  <strong>Description:</strong>
 	  <%= @improvement.description %>
 	</p>
-
-	<%= link_to 'Edit', edit_improvement_path(@improvement) %> 
-	<%= link_to 'Back', improvements_path %>
+   <% if can? :manage, :all %>
+	
+	<%= link_to 'Back', @improvements %>
+	<% end %>
 
 </div>

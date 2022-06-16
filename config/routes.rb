@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   get 'faqs/update'
   get 'faqs/destroy'
 
+ get 'tiff/index'
  get 'tiff/create'
  post 'tiff/create'
  get 'tiff/view/:id', to: 'tiff#view'
- get 'tiff/index'
  get 'tiff/delete/:id', to: 'tiff#delete'
  get 'tiff/edit/:id', to: 'tiff#edit'
  post 'tiff/edit/:id', to: 'tiff#edit'

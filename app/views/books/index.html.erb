@@ -40,7 +40,7 @@
 
         </div>
         <div class="modal-footer">
-          <% if has_role? (:admin) %>
+          <% if can? :manage, @books %>
             <%= link_to 'Edit', edit_book_path(book) %>
             <%= link_to 'Destroy', new_book_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link"  %>
         <% end %>

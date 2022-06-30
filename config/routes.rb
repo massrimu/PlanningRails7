@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
+
   devise_for :users
 
-  get 'faqs/index'
-  get 'faqs/new'
-  get 'faqs/create'
-  get 'faqs/show'
-  get 'faqs/edit'
-  get 'faqs/update'
-  get 'faqs/destroy'
+  get 'details/index'
+  get 'details/show'
+  get 'details/new'
+  get 'details/delete' 
+  get 'details/edit'
+
 
  get 'tiff/index'
  get 'tiff/create'
@@ -40,6 +40,10 @@ end
   resources :faqs
 
   resources :books
+
+  resources :info
+
+   resources :details
 
   resources :users
 

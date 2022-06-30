@@ -1,7 +1,3 @@
-<div class="container">
-  <div class="rectangle"></div>
-
-
 <style>
 th, td {
   padding: 10px;
@@ -10,18 +6,41 @@ th {
   text-align: left;
 }
 .rectangle {
-  height: 250px;
-  width: 1100px;
-  background-color: White;
-  border: 2px Solid Black;
+
+  border: 1px Solid Black;
 }
 .rightpane {
   position: absolute;
-  right: 70px;
-  top:420px
+  right: 60px;
+  top:540px
 
   }
+.links {
+  padding-left: 450px;
+
+
+}
 </style>
+<div class="container">
+  <div class= "links">
+    <u><%= link_to 'Projects', projects_url %> </u>
+    &nbsp;|&nbsp;
+  <u>  <%= link_to 'Principles', principles_url %> </u>
+    &nbsp;|&nbsp;
+  <u>  <%= link_to 'Books', books_url %> </u>
+
+
+</div>
+<br>
+<br>
+
+  <div>
+<%= image_tag "storymap.jpg",  alt: "Map", height: 260, class: "rectangle"%>
+<h3>
+  <a href="https://storymaps.arcgis.com/stories/8293fff00ccf4e38873b4ae0b766145a" >Story Map: Michigan Avenue Corridor Improvements
+</a> </h3>
+</div>
+
 <br>
 <br>
 <br>
@@ -87,9 +106,22 @@ th {
 <a href="/tiff/create">Create New</a>
 <% end %>
 <div class="rightpane">
-  <h1>
-    <a href="https://www.w3schools.com/html/" >Tiff Overview
-  </a> </h1>
-  <h2><a href="https://www.w3schools.com/html/" >Frequently Asked Questions </a></h2>
+  <h2><b> MACIA Development and TIFF: </b> </h2>
+  <p>  In 2009 the Lansing City Council approved the establishment of the Michigan
+  <br> Avenue Corridor Improvement Authority (MACIA) with the goals to correct and
+  <br> prevent deterioration in the business districts, redevelop the city’ commercial
+  <br> corridors and promote economic growth. </p>
+  <p>  In development of this plan, the Authority identified several key principles
+  <br> that were used in creation of the plan and are supported by the City’s Master
+  <br> Plan to transform the visually unappealing character of the corridor, to
+  <br> encourage pedestrians and market the quality of the adjacent neighborhoods
+  <br> as attractive,livable and sustainable community gateways. </p>
+  <h3><%= link_to 'For more information', details_url %>  </h3>
  </div>
+
+ <br>
+  <%= render "disqus" %>
+ <br>
+
+
 </div>

@@ -1,0 +1,46 @@
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6,p {
+  font-family: "Roboto", sans-serif; text-align: justify;
+}
+</style>
+</head>
+<body>
+<div class="w3-main" style="margin-left:200px">
+  <div class="w3-twothird w3-container">
+
+  <% if @details.present? %>
+
+    <% @details.each do |detail| %>
+              <h1 class="w3-text-teal"><%= detail.title %></h1>
+              <h3><%= detail.title %></h3>
+
+              <br>
+              <p><%= detail.body %></p>
+                  <% if can? :manage, :all %>
+              <td><%= link_to 'Show', detail_path(detail.id) %></td>
+              <td><%= link_to 'Edit', edit_detail_path(detail.id) %></td>
+              <td><%= link_to 'Delete', detail_path(detail.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+<% end %>
+    </div>
+      <% if can? :manage, :all %>
+<%= link_to 'Create Post', new_detail_path %>
+<% end %>
+  <% else %>
+    <div class="p-3 mb-2 bg-light text-dark">
+      <span class="text-info font-weight-bold">Welcome! </span>
+      Create your first post
+
+    </div>
+
+  <% end %>
+
+</div>
+<body>

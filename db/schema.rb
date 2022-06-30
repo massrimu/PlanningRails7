@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_18_070928) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_30_045719) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -75,8 +75,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_18_070928) do
     t.datetime "image_updated_at", precision: nil
   end
 
-  create_table "faqs", force: :cascade do |t|
+  create_table "details", force: :cascade do |t|
     t.string "title"
+    t.string "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "faqs", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -96,6 +102,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_18_070928) do
     t.datetime "image_updated_at", precision: nil
     t.index ["project_id"], name: "idx_improvements_index_improvements_on_project_id"
     t.index ["projects_id"], name: "idx_improvements_index_improvements_on_projects_id"
+  end
+
+  create_table "infos", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "principles", force: :cascade do |t|
